@@ -1,13 +1,11 @@
 function largestProduct(array) {
   let largestProductSoFar = array[0] * array[1] * array[2];
   let i = 0;
-  let j = 0;
-  let k = 0;
 
   while (i < array.length) {
-    j = i + 1;
+    let j = i + 1;
     while (j < array.length) {
-      k = j + 1;
+      let k = j + 1;
       while (k < array.length) {
         if (array[i] * array[j] * array[k] > largestProductSoFar) {
           largestProductSoFar = array[i] * array[j] * array[k];
