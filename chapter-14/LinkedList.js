@@ -78,6 +78,41 @@ class LinkedList {
     let nodeAfterDeletedOne = currentNode.nextNode.nextNode;
     currentNode.nextNode = nodeAfterDeletedOne;
   }
+
+  printAll() {
+    let currentNode = this.firstNode;
+
+    while (currentNode) {
+      console.log(currentNode.data);
+
+      currentNode = currentNode.nextNode;
+    }
+  }
+
+  giveLast() {
+    let currentNode = this.firstNode;
+
+    while (currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
+    }
+
+    return currentNode.data;
+  }
+
+  reverse() {
+    let previousNode = null;
+    let currentNode = this.firstNode;
+
+    while (currentNode) {
+      let nextNode = currentNode.nextNode;
+
+      currentNode.nextNode = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+    }
+
+    this.firstNode = previousNode;
+  }
 }
 
 nodeOne = new Node("Once");
@@ -91,11 +126,14 @@ nodeThree.nextNode = nodeFour;
 
 list = new LinkedList(nodeOne);
 
-console.log(list.read(3));
-console.log(list.indexOf("time"));
-list.insertAtIndex(3, "purple");
+// console.log(list.read(3));
+// console.log(list.indexOf("time"));
+// list.insertAtIndex(3, "purple");
 
-console.log(list.read(3));
-list.deleteAtIndex(3);
-console.log(list.read(3));
-console.log(list.read(1));
+// console.log(list.read(3));
+// list.deleteAtIndex(3);
+// console.log(list.read(3));
+// console.log(list.read(1));
+list.reverse();
+console.log(list.printAll());
+// console.log(list.giveLast());
